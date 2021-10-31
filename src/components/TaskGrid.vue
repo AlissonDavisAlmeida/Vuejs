@@ -2,7 +2,9 @@
   <div class="tasks">
       
       <template v-if="tasks.length">
-          <Task v-for="task in tasks" :key="task.name" :task="task">
+          <Task v-for="(task, index) in tasks" :key="task.name" 
+                @taskDelete="$emit('taskDelete',index )" 
+                :task="task" @toggleTask="$emit('toggleTask',index)">
            
           </Task>
       </template>
